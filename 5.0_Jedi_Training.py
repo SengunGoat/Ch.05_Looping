@@ -29,7 +29,7 @@
      a WHILE loop, don't use a FOR loop.
 '''
 #x=False
-#while x==False:
+#while not x:
    # for x in range(10,-1,-1):
         #print(x)
      #   x=True
@@ -75,6 +75,7 @@ for i in range(7):
     else:
         zero += 1
 print("Your total is",count,)
+print()
 print("You had",pos,"positive numbers")
 print()
 print("You had",neg,"negative numbers")

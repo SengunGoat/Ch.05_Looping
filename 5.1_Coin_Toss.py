@@ -9,21 +9,20 @@ COIN TOSS PROGRAM
 import random
 heads=0
 tails=0
-
-for i in range(50):
-    onetwo = random.randint(0, 1)
-    if onetwo==1:
-        print("You got heads!")
-        heads+=1
-    else:
-        print("You got tails!")
-        tails+=1
-print()
-print("You got heads",heads,"times!")
-print()
-print("You got tails",tails,"times!")
-
-
+false=0
+true=0
+for i in range(50000):
+    for i in range(50):
+        onetwo = random.randint(0, 1)
+        if onetwo==1:
+            heads+=1
+        else:
+            tails+=1
+    print()
+    print("You got heads",heads,"times!")
+    print("You got tails",tails,"times!")
+    heads=0
+    tails=0
 
 
 
