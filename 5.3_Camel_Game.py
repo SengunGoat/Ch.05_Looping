@@ -17,7 +17,7 @@ Q. Quit.
 import random
 
 miletrav=20
-drinks=5
+drinks=4
 enedist=0
 thirst=0
 narwhalstam=0
@@ -51,9 +51,9 @@ while done==False:
     print()
     answer=int(input("Select one of the actions to continue"))
     if answer==6:
-        done==True
+        done=True
         print()
-        print("The game has ended and has now restarted")
+        print("The game has ended, you gave up")
         print()
     elif answer==5:
         print()
@@ -66,7 +66,7 @@ while done==False:
         print("You thirst level is",thirst,)
         print()
     elif answer==4:
-        narwhalstam==0
+        narwhalstam=0
         print()
         print("Your Narwhal seems ready to continue the journey!")
         enedist+=enemspeed
@@ -84,7 +84,7 @@ while done==False:
         print()
     elif answer==2:
         print()
-        moderandom+=miletrav
+        miletrav+=moderandom
         print("You moved forward",moderandom,"today!")
         print()
         enedist+=enemspeed
@@ -93,7 +93,7 @@ while done==False:
         print("The seals moved",enemspeed,"today!")
         print()
     elif answer==1:
-        thirst==0
+        thirst=0
         drinks-=1
         print()
         print("You replenished your thirst!")
@@ -105,34 +105,37 @@ while done==False:
         print("You can't do that you have no drinks remaining")
     else:
         print("Error,try to enter a valid action")
-    if thirst>=4 and thirst<=6 and answer!=5:
+    if thirst>=4 and thirst<=6 and answer!=5 and done==False:
         print("You're very thirsty!")
         print()
     elif thirst>6:
         print()
         print("You died of dehydration so you lost!")
-        done==True
-    if narwhalstam>5:
+        done=True
+    if narwhalstam>4 and done==False:
         print("Your narwhal is losing it's will to continue")
         print()
-    elif narwhalstam>9:
-        done==True
+    elif narwhalstam>7:
+        done=True
         print()
         print("Your narwhal lost all respect for you and left you to die in the middle of no where")
-    if miletrav-enedist<20:
+    if miletrav-enedist<20 and done==False:
         print("The seals are getting close!")
         print()
-    if miletrav>=250:
+    if miletrav <= enedist:
+        done=True
+        print("You lost, the seals caught up to you and fed you to the whales")
+    if miletrav>=270 and done==False:
         print()
         print("You won! congrats on making it to the end and surviving the antartic!")
         print()
-        done==True
-    if oasisodds==1:
+        done=True
+    if oasisodds==1 and answer==3 or answer==2:
         print("You found a nearby town and decided to rest there for the day!")
         print()
-        thirst==0
-        narwhalstam==0
-        drinks==6
+        thirst=0
+        narwhalstam=0
+        drinks=4
 
 
 
